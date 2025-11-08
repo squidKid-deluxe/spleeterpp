@@ -1,4 +1,5 @@
 #include "artff/buffer/circular_frame_buffer.h"
+#include <cstdint>
 
 namespace artff {
 CircularFrameBuffer::CircularFrameBuffer() : m_push_index(0), m_pop_index(0) {}

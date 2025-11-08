@@ -32,6 +32,25 @@ endif()
 ###############
 
 # External dependencies
+# Find libsndfile  
+find_package(PkgConfig REQUIRED)  
+pkg_check_modules(SNDFILE REQUIRED sndfile)  
+  
+# Add your CLI executable  
+add_executable(spleeter_cli src/cli.cpp)  
+  
+# Link libraries including libsndfile  
+target_link_libraries(spleeter_cli  
+    spleeter  
+    spleeter_common  
+    ${SNDFILE_LIBRARIES}  
+)  
+  
+# Include directories  
+target_include_directories(spleeter_cli PRIVATE  
+    ${SNDFILE_INCLUDE_DIRS}  
+)
+
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 if (${spleeter_regenerate_models})
   include(add_spleeter)

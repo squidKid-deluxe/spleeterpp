@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "wave/file.h"
 #include "artff/abstract_filter.h"
+#include <thread>
+#include <chrono>
 
 class MyFilter : public artff::AbstractFilter {
 private:
